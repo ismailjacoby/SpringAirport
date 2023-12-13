@@ -3,7 +3,6 @@ package be.technobel.springairport.pl.models.pilote.dto;
 import be.technobel.springairport.dal.models.Pilote;
 
 public record PiloteDto(
-        long id,
         String nom,
         String adresse,
         String tel,

@@ -4,11 +4,9 @@ import be.technobel.springairport.dal.models.Pilote;
 
 public record PiloteShortDto (
         String nom,
-        String adresse,
-        String tel,
         String numBrevet) {
 
     public static PiloteShortDto toDto(Pilote pilote){
-        return new PiloteShortDto(pilote.getNom(),pilote.getAdresse(), pilote.getTel(), pilote.getNumBrevet());
+        return new PiloteShortDto(pilote.getNom(),pilote.getNumBrevet());
     }
 }

@@ -15,6 +15,6 @@ public class TypeAvion {
     private long id;
     private String nom;
     private String constucteur;
-    private String puissance;
+    private int puissance;
     private int nbPlaces;
 }

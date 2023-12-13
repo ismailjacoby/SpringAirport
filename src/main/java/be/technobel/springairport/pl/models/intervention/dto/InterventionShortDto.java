@@ -7,9 +7,8 @@ import java.time.LocalTime;
 
 public record InterventionShortDto (
         String objet,
-        LocalDate date,
-        LocalTime time){
+        LocalDate date){
     public static InterventionShortDto toDto(Intervention intervention){
-        return new InterventionShortDto(intervention.getObjet(), intervention.getDate(),intervention.getTime());
+        return new InterventionShortDto(intervention.getObjet(), intervention.getDate());
     }
 }
