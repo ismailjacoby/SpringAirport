@@ -8,6 +8,6 @@ public record PiloteDto(
         String tel,
         String numBrevet) {
     public static PiloteDto toDto(Pilote pilote){
-        return new PiloteDto(pilote.getId(),pilote.getNom(), pilote.getAdresse(), pilote.getTel(), pilote.getNumBrevet());
+        return new PiloteDto(pilote.getNom(), pilote.getAdresse(), pilote.getTel(), pilote.getNumBrevet());
     }
 }

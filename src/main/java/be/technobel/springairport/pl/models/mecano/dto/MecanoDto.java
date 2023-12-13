@@ -8,6 +8,6 @@ public record MecanoDto(
         String tel
         ) {
     public static MecanoDto toDto(Mecano mecano){
-        return new MecanoDto(mecano.getId(),mecano.getNom(),mecano.getAdresse(),mecano.getTel());
+        return new MecanoDto(mecano.getNom(),mecano.getAdresse(),mecano.getTel());
     }
 }
