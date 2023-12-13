@@ -2,6 +2,7 @@ package be.technobel.springairport.pl.controllers;
 
 import be.technobel.springairport.bll.pilote.PiloteService;
 import be.technobel.springairport.dal.models.Pilote;
+import be.technobel.springairport.pl.models.pilote.dto.PiloteDto;
 import be.technobel.springairport.pl.models.pilote.dto.PiloteShortDto;
 import be.technobel.springairport.pl.models.pilote.form.PiloteForm;
 import jakarta.validation.Valid;
@@ -27,9 +28,8 @@ public class PiloteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pilote> getOne(@PathVariable long id){
-        Optional<Pilote> pilote = piloteService.getOne(id);
-        return pilote.map(ResponseEntity::ok).orElseGet(()->ResponseEntity.notFound().build());
+    public ResponseEntity<PiloteDto> getOne(@PathVariable long id){
+        return ResponseEntity.ok(PiloteDto.toDto(piloteService.getOne(id)));
     }
 
     @GetMapping("/all")

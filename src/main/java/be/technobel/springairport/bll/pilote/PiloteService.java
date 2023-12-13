@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface PiloteService {
     void create(PiloteForm form);
-    Optional<Pilote> getOne(long id);
+    Pilote getOne(long id);
     List<Pilote> getAll();
     void update(long id, PiloteForm form);
     void delete(long id);

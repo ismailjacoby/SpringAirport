@@ -34,8 +34,8 @@ public class PiloteServiceImpl implements PiloteService {
     }
 
     @Override
-    public Optional<Pilote> getOne(long id) {
-        return piloteRepository.findById(id);
+    public Pilote getOne(long id) {
+        return piloteRepository.findById(id).orElseThrow(()-> new NotFoundException("Pilote non trouvé!"));
     }
 
     @Override
