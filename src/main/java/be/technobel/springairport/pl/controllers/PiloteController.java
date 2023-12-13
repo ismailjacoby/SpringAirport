@@ -44,8 +44,10 @@ public class PiloteController {
     public void update(@PathVariable long id, @RequestBody @Valid PiloteForm form){
         piloteService.update(id,form);
     }
+
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable long id){
         piloteService.delete(id);
     }
+
 }
