@@ -10,7 +10,5 @@ import lombok.Data;
 @Data
 public class Avion {
     @Id
-    @GeneratedValue
-    @Column(name = "numIma")
-    private long id;
+    private String immatriculation;
 }

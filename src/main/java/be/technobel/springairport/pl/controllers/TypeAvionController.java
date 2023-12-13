@@ -12,10 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/typeavion")
-public class TypeAvionControlleur {
+public class TypeAvionController {
     public final TypeAvionService typeAvionService;
 
-    public TypeAvionControlleur(TypeAvionService typeAvionService) {
+    public TypeAvionController(TypeAvionService typeAvionService) {
         this.typeAvionService = typeAvionService;
     }
 
