@@ -22,7 +22,7 @@ public class PiloteController {
         this.piloteService = piloteService;
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public void create(@RequestBody @Valid PiloteForm form){
         piloteService.create(form);
     }
