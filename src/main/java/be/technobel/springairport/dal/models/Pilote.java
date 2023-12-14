@@ -10,4 +10,6 @@ import java.util.List;
 public class Pilote extends Personne {
     private String numBrevet;
 
+    @OneToMany(mappedBy = "pilote")
+    private List<Piloter> avionsPilotes;
 }

@@ -16,4 +16,13 @@ public class Intervention {
     private String objet;
     private LocalDate date;
     private LocalTime time;
+
+    @OneToOne(mappedBy = "intervention")
+    private Verifie verifie;
+
+    @OneToOne(mappedBy = "intervention")
+    private Repare repare;
+
+    @OneToOne(mappedBy = "intervention")
+    private Subit subit;
 }

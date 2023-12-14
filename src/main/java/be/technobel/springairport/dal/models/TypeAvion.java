@@ -17,4 +17,10 @@ public class TypeAvion {
     private String constucteur;
     private int puissance;
     private int nbPlaces;
+
+    @OneToMany(mappedBy = "typeAvion")
+    private List<Piloter> pilotes;
+
+    @OneToMany(mappedBy = "typeAvion")
+    private List<Possede> avionsPossedes;
 }
