@@ -1,5 +1,8 @@
 package be.technobel.springairport.dal.models;
 
+import be.technobel.springairport.dal.models.joinTables.Repare;
+import be.technobel.springairport.dal.models.joinTables.Subit;
+import be.technobel.springairport.dal.models.joinTables.Verifie;
 import jakarta.persistence.*;
 import lombok.Data;
 

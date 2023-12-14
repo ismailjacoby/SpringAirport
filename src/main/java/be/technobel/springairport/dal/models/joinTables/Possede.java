@@ -1,5 +1,8 @@
-package be.technobel.springairport.dal.models;
+package be.technobel.springairport.dal.models.joinTables;
 
+import be.technobel.springairport.dal.models.Avion;
+import be.technobel.springairport.dal.models.Proprio;
+import be.technobel.springairport.dal.models.TypeAvion;
 import jakarta.persistence.*;
 import lombok.Data;
 

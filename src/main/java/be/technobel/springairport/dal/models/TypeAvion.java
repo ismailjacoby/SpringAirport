@@ -1,5 +1,7 @@
 package be.technobel.springairport.dal.models;
 
+import be.technobel.springairport.dal.models.joinTables.Piloter;
+import be.technobel.springairport.dal.models.joinTables.Possede;
 import jakarta.persistence.*;
 import lombok.Data;
 
