@@ -62,6 +62,7 @@ public class DataInit implements InitializingBean {
             pilote.setNom(faker.name().fullName());
             pilote.setAdresse(faker.address().fullAddress());
             pilote.setTel(faker.phoneNumber().cellPhone());
+            pilote.setNumBrevet(faker.number().digits(5));
             piloteRepository.save(pilote);
 
             Intervention intervention = new Intervention();
