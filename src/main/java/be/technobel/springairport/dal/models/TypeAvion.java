@@ -24,5 +24,5 @@ public class TypeAvion {
     private List<Piloter> pilotes;
 
     @OneToMany(mappedBy = "typeAvion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Possede> avionsPossedes;
+    private List<Possede> avionsPossedesList;
 }
