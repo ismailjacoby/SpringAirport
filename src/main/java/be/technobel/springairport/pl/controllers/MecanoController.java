@@ -2,10 +2,12 @@ package be.technobel.springairport.pl.controllers;
 
 import be.technobel.springairport.bll.mecano.MecanoService;
 import be.technobel.springairport.bll.mecano.MecanoServiceImpl;
+import be.technobel.springairport.dal.models.Mecano;
 import be.technobel.springairport.pl.models.mecano.dto.MecanoDto;
 import be.technobel.springairport.pl.models.mecano.dto.MecanoShortDto;
 import be.technobel.springairport.pl.models.mecano.form.MecanoForm;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,8 +28,14 @@ public class MecanoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MecanoDto> getOne(@PathVariable long id){
-        return ResponseEntity.ok(MecanoDto.toDto(mecanoService.getOne(id)));
+    public ResponseEntity<MecanoDto> getOne(@PathVariable long id) {
+        Mecano mecano = mecanoService.getOne(id);
+        if (mecano == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        else {
+            return ResponseEntity.ok(MecanoDto.toDto(mecano));
+        }
     }
 
     @GetMapping("/all")

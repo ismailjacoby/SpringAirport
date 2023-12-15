@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/SpringAirport
     username: postgres
-    password: 1285
+    password: xqcow
     driver-class-name: org.postgresql.Driver
 
   jpa:

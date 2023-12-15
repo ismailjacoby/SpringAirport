@@ -22,10 +22,8 @@ public class Intervention {
 
     @OneToOne(mappedBy = "intervention")
     private Verifie verifie;
-
     @OneToOne(mappedBy = "intervention")
     private Repare repare;
-
     @OneToOne(mappedBy = "intervention")
     private Subit subit;
 }

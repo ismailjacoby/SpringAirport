@@ -3,26 +3,21 @@ package be.technobel.springairport.dal.models;
 import be.technobel.springairport.dal.models.joinTables.EstHabilite;
 import be.technobel.springairport.dal.models.joinTables.Repare;
 import be.technobel.springairport.dal.models.joinTables.Verifie;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
 
 @Entity @Data
 public class Mecano extends Personne{
-    @Enumerated(EnumType.STRING)
-    private MecanoRole role;
 
-    @OneToMany(mappedBy = "verificateur")
+    @OneToMany(mappedBy = "verificateur", cascade = CascadeType.ALL)
     private List<Verifie> verifications;
 
-    @OneToMany(mappedBy = "reparateur")
+    @OneToMany(mappedBy = "reparateur", cascade = CascadeType.ALL)
     private List<Repare> reparations;
 
-    @OneToMany(mappedBy = "mecano")
+    @OneToMany(mappedBy = "mecano", cascade = CascadeType.ALL)
     private List<EstHabilite> habilites;
 
 }

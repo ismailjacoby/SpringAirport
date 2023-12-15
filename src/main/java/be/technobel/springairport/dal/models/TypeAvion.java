@@ -20,9 +20,9 @@ public class TypeAvion {
     private int puissance;
     private int nbPlaces;
 
-    @OneToMany(mappedBy = "typeAvion")
+    @OneToMany(mappedBy = "typeAvion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Piloter> pilotes;
 
-    @OneToMany(mappedBy = "typeAvion")
+    @OneToMany(mappedBy = "typeAvion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Possede> avionsPossedes;
 }
