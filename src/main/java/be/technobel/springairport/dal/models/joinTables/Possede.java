@@ -12,10 +12,6 @@ public class Possede {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "proprio_id")
-    private Proprio proprio;
-
-    @ManyToOne
     @JoinColumn(name = "avion_immatriculation", referencedColumnName = "immatriculation")
     private Avion avion;
 
