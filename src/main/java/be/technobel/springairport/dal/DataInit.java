@@ -22,8 +22,7 @@ public class DataInit implements InitializingBean {
 
     private final ProprioRepository proprioRepository;
     private final TypeAvionRepository typeAvionRepository;
-    //@Value("$")
-    //private boolean activeDataInit;
+
 
     public DataInit(AvionRepository avionRepository, InterventionRepository interventionRepository, MecanoRepository mecanoRepository, PiloteRepository piloteRepository, PiloterRepository piloterRepository, ProprioRepository proprioRepository, TypeAvionRepository typeAvionRepository) {
         this.avionRepository = avionRepository;
@@ -41,7 +40,7 @@ public class DataInit implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         Faker faker = new Faker(new Locale("fr"));
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             Proprio proprio = new Proprio();
             proprio.setNom(faker.name().fullName());
             proprio.setAdresse(faker.address().fullAddress());

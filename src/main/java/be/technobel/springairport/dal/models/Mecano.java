@@ -10,11 +10,7 @@ public class Mecano extends Personne{
 
 
     @ManyToMany
-    @JoinTable(
-            name = "mecano_Type_avion",
-            joinColumns = @JoinColumn(name = "mecano_id"),
-            inverseJoinColumns = @JoinColumn(name = "type_avion_id")
-    )
+    @JoinTable(name = "Mecano_TypeAvion")
     private List<TypeAvion> habilitations;
 
 }
