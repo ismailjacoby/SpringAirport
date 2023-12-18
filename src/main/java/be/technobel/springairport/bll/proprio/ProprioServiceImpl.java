@@ -4,6 +4,8 @@ import be.technobel.springairport.bll.exception.NotFoundException;
 import be.technobel.springairport.dal.models.Proprio;
 import be.technobel.springairport.dal.repositories.ProprioRepository;
 import be.technobel.springairport.pl.models.proprio.form.ProprioForm;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,8 +37,8 @@ public class ProprioServiceImpl implements ProprioService {
     }
 
     @Override
-    public List<Proprio> getAll() {
-        return proprioRepository.findAll();
+    public Page<Proprio> getAll(Pageable pageable) {
+        return proprioRepository.findAll(pageable);
     }
 
     @Override

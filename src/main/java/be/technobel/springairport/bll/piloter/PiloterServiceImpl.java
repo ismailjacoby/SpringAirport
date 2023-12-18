@@ -1,9 +1,11 @@
 package be.technobel.springairport.bll.piloter;
 
 import be.technobel.springairport.bll.exception.NotFoundException;
-import be.technobel.springairport.dal.models.joinTables.Piloter;
+import be.technobel.springairport.dal.models.Piloter;
 import be.technobel.springairport.dal.repositories.PiloterRepository;
 import be.technobel.springairport.pl.models.piloter.form.PiloterForm;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,8 +38,8 @@ public class PiloterServiceImpl implements PiloterService {
     }
 
     @Override
-    public List<Piloter> getAll() {
-        return piloterRepository.findAll();
+    public Page<Piloter> getAll(Pageable pageable) {
+        return piloterRepository.findAll(pageable);
     }
 
     @Override

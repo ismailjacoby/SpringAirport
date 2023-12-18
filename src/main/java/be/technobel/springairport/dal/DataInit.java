@@ -1,14 +1,12 @@
 package be.technobel.springairport.dal;
 
 import be.technobel.springairport.dal.models.*;
-import be.technobel.springairport.dal.models.joinTables.Piloter;
-import be.technobel.springairport.dal.models.joinTables.Possede;
 import be.technobel.springairport.dal.repositories.*;
 import net.datafaker.Faker;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Locale;
@@ -21,17 +19,19 @@ public class DataInit implements InitializingBean {
     private final MecanoRepository mecanoRepository;
     private final PiloteRepository piloteRepository;
     private final PiloterRepository piloterRepository;
-    private final PossedeRepository possedeRepository;
+
     private final ProprioRepository proprioRepository;
     private final TypeAvionRepository typeAvionRepository;
+    //@Value("$")
+    //private boolean activeDataInit;
 
-    public DataInit(AvionRepository avionRepository, InterventionRepository interventionRepository, MecanoRepository mecanoRepository, PiloteRepository piloteRepository, PiloterRepository piloterRepository, PossedeRepository possedeRepository, ProprioRepository proprioRepository, TypeAvionRepository typeAvionRepository) {
+    public DataInit(AvionRepository avionRepository, InterventionRepository interventionRepository, MecanoRepository mecanoRepository, PiloteRepository piloteRepository, PiloterRepository piloterRepository, ProprioRepository proprioRepository, TypeAvionRepository typeAvionRepository) {
         this.avionRepository = avionRepository;
         this.interventionRepository = interventionRepository;
         this.mecanoRepository = mecanoRepository;
         this.piloteRepository = piloteRepository;
         this.piloterRepository = piloterRepository;
-        this.possedeRepository = possedeRepository;
+
         this.proprioRepository = proprioRepository;
         this.typeAvionRepository = typeAvionRepository;
     }
@@ -39,7 +39,7 @@ public class DataInit implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        Faker faker = new Faker();
+        Faker faker = new Faker(new Locale("fr"));
 
         for (int i = 0; i < 10; i++) {
             Proprio proprio = new Proprio();

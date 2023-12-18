@@ -6,6 +6,8 @@ import be.technobel.springairport.pl.models.pilote.dto.PiloteDto;
 import be.technobel.springairport.pl.models.pilote.dto.PiloteShortDto;
 import be.technobel.springairport.pl.models.pilote.form.PiloteForm;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,11 +35,9 @@ public class PiloteController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<PiloteShortDto>> getAll(){
-        return ResponseEntity.ok(piloteService.getAll()
-                .stream()
-                .map(PiloteShortDto::toDto)
-                .toList());
+    public ResponseEntity<Page<PiloteShortDto>> getAll(Pageable pageable){
+        return ResponseEntity.ok(piloteService.getAll(pageable)
+                .map(PiloteShortDto::toDto));
     }
 
     @PutMapping("/update/{id}")

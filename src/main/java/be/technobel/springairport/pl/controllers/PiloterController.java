@@ -5,6 +5,8 @@ import be.technobel.springairport.pl.models.piloter.dto.PiloterDto;
 import be.technobel.springairport.pl.models.piloter.dto.PiloterShortDto;
 import be.technobel.springairport.pl.models.piloter.form.PiloterForm;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,11 +32,9 @@ public class PiloterController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<PiloterShortDto>> getAll(){
-        return ResponseEntity.ok(piloterService.getAll()
-                .stream()
-                .map(PiloterShortDto::toDto)
-                .toList());
+    public ResponseEntity<Page<PiloterShortDto>> getAll(Pageable pageable){
+        return ResponseEntity.ok(piloterService.getAll(pageable)
+                .map(PiloterShortDto::toDto));
     }
 
     @PutMapping("/{id}")

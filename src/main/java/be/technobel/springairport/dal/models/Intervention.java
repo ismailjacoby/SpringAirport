@@ -1,8 +1,5 @@
 package be.technobel.springairport.dal.models;
 
-import be.technobel.springairport.dal.models.joinTables.Repare;
-import be.technobel.springairport.dal.models.joinTables.Subit;
-import be.technobel.springairport.dal.models.joinTables.Verifie;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,10 +17,12 @@ public class Intervention {
     private LocalDate date;
     private LocalTime time;
 
-    @OneToOne(mappedBy = "intervention")
-    private Verifie verifie;
-    @OneToOne(mappedBy = "intervention")
-    private Repare repare;
-    @OneToOne(mappedBy = "intervention")
-    private Subit subit;
+
+    @ManyToOne
+    @JoinColumn(name = "Mecano_Id")
+    private Mecano mecano;
+
+    @ManyToOne
+    @JoinColumn(name = "avion_id")
+    private Avion avion;
 }

@@ -5,6 +5,8 @@ import be.technobel.springairport.pl.models.proprio.dto.ProprioDto;
 import be.technobel.springairport.pl.models.proprio.dto.ProprioShortDto;
 import be.technobel.springairport.pl.models.proprio.form.ProprioForm;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,11 +33,9 @@ public class ProprioController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<ProprioShortDto>> getAll(){
-        return ResponseEntity.ok(proprioService.getAll()
-                .stream()
-                .map(ProprioShortDto::toDto)
-                .toList());
+    public ResponseEntity<Page<ProprioShortDto>> getAll(Pageable pageable){
+        return ResponseEntity.ok(proprioService.getAll(pageable)
+                .map(ProprioShortDto::toDto));
     }
 
     @PutMapping("/update/{id}")

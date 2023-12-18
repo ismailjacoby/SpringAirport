@@ -5,6 +5,8 @@ import be.technobel.springairport.pl.models.typeAvion.dto.TypeAvionDto;
 import be.technobel.springairport.pl.models.typeAvion.dto.TypeAvionShortDto;
 import be.technobel.springairport.pl.models.typeAvion.form.TypeAvionForm;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,11 +32,9 @@ public class TypeAvionController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<TypeAvionShortDto>> getAll(){
-        return ResponseEntity.ok(typeAvionService.getAll()
-                .stream()
-                .map(TypeAvionShortDto::toDto)
-                .toList());
+    public ResponseEntity<Page<TypeAvionShortDto>> getAll(Pageable pageable){
+        return ResponseEntity.ok(typeAvionService.getAll(pageable)
+                .map(TypeAvionShortDto::toDto));
     }
 
     @PutMapping("/update/{id}")

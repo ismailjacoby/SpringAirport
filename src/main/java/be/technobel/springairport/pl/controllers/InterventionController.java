@@ -6,6 +6,8 @@ import be.technobel.springairport.pl.models.intervention.dto.InterventionDto;
 import be.technobel.springairport.pl.models.intervention.dto.InterventionShortDto;
 import be.technobel.springairport.pl.models.intervention.form.InterventionForm;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,11 +33,9 @@ public class InterventionController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<InterventionShortDto>> getAll(){
-        return ResponseEntity.ok(interventionService.getAll()
-                .stream()
-                .map(InterventionShortDto::toDto)
-                .toList());
+    public ResponseEntity<Page<InterventionShortDto>> getAll(Pageable pageable){
+        return ResponseEntity.ok(interventionService.getAll(pageable)
+                .map(InterventionShortDto::toDto));
     }
     @PutMapping("/update/{id}")
     public void update(@PathVariable long id, @RequestBody @Valid InterventionForm form){

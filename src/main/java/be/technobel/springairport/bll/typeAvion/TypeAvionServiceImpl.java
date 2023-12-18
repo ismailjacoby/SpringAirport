@@ -4,6 +4,8 @@ import be.technobel.springairport.bll.exception.NotFoundException;
 import be.technobel.springairport.dal.models.TypeAvion;
 import be.technobel.springairport.dal.repositories.TypeAvionRepository;
 import be.technobel.springairport.pl.models.typeAvion.form.TypeAvionForm;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,8 +38,8 @@ public class TypeAvionServiceImpl implements TypeAvionService{
     }
 
     @Override
-    public List<TypeAvion> getAll() {
-        return typeAvionRepository.findAll();
+    public Page<TypeAvion> getAll(Pageable pageable) {
+        return typeAvionRepository.findAll(pageable);
     }
 
     @Override

@@ -5,6 +5,8 @@ import be.technobel.springairport.dal.models.Intervention;
 import be.technobel.springairport.dal.repositories.InterventionRepository;
 import be.technobel.springairport.dal.repositories.PiloteRepository;
 import be.technobel.springairport.pl.models.intervention.form.InterventionForm;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,8 +40,8 @@ public class InterventionServiceImpl implements InterventionService{
     }
 
     @Override
-    public List<Intervention> getAll() {
-        return interventionRepository.findAll();
+    public Page<Intervention> getAll(Pageable pageable) {
+        return interventionRepository.findAll(pageable);
     }
 
     @Override

@@ -4,6 +4,8 @@ import be.technobel.springairport.bll.exception.NotFoundException;
 import be.technobel.springairport.dal.models.Mecano;
 import be.technobel.springairport.dal.repositories.MecanoRepository;
 import be.technobel.springairport.pl.models.mecano.form.MecanoForm;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,8 +36,8 @@ public class MecanoServiceImpl implements MecanoService{
     }
 
     @Override
-    public List<Mecano> getAll() {
-        return mecanoRepository.findAll();
+    public Page<Mecano> getAll(Pageable pageable) {
+        return mecanoRepository.findAll(pageable);
     }
 
     @Override

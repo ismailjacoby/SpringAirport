@@ -5,6 +5,8 @@ import be.technobel.springairport.dal.models.Pilote;
 import be.technobel.springairport.dal.repositories.PiloteRepository;
 import be.technobel.springairport.pl.models.pilote.form.PiloteForm;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,8 +41,8 @@ public class PiloteServiceImpl implements PiloteService {
     }
 
     @Override
-    public List<Pilote> getAll() {
-        return piloteRepository.findAll();
+    public Page<Pilote> getAll(Pageable pageable) {
+        return piloteRepository.findAll(pageable);
     }
 
     @Override

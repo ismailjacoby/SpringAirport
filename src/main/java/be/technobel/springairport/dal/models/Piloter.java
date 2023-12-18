@@ -1,4 +1,4 @@
-package be.technobel.springairport.dal.models.joinTables;
+package be.technobel.springairport.dal.models;
 
 import be.technobel.springairport.dal.models.Pilote;
 import be.technobel.springairport.dal.models.TypeAvion;

@@ -2,7 +2,7 @@ package be.technobel.springairport.pl.models.piloter.dto;
 
 import be.technobel.springairport.dal.models.Pilote;
 import be.technobel.springairport.dal.models.TypeAvion;
-import be.technobel.springairport.dal.models.joinTables.Piloter;
+import be.technobel.springairport.dal.models.Piloter;
 
 public record PiloterShortDto (
         long id,

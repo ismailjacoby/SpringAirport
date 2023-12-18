@@ -7,6 +7,8 @@ import be.technobel.springairport.pl.models.mecano.dto.MecanoDto;
 import be.technobel.springairport.pl.models.mecano.dto.MecanoShortDto;
 import be.technobel.springairport.pl.models.mecano.form.MecanoForm;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,11 +41,9 @@ public class MecanoController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<MecanoShortDto>> getAll(){
-        return ResponseEntity.ok(mecanoService.getAll()
-                .stream()
-                .map(MecanoShortDto::toDto)
-                .toList());
+    public ResponseEntity<Page<MecanoShortDto>> getAll(Pageable pageable){
+        return ResponseEntity.ok(mecanoService.getAll(pageable)
+                .map(MecanoShortDto::toDto));
     }
     @PutMapping("/update/{id}")
     public void update(@PathVariable long id, @RequestBody @Valid MecanoForm form){
