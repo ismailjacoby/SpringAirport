@@ -25,7 +25,7 @@ public class PiloteServiceImpl implements PiloteService {
     @Override
     public void create(PiloteForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         Pilote pilote = new Pilote();
         pilote.setNom(form.nom());
@@ -48,7 +48,7 @@ public class PiloteServiceImpl implements PiloteService {
     @Override
     public void update(long id, PiloteForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         Pilote pilote = piloteRepository.findById(id).orElseThrow(() -> new NotFoundException("Pilote pas trouvé!"));
         pilote.setNom(form.nom());

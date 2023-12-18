@@ -21,7 +21,7 @@ public class MecanoServiceImpl implements MecanoService{
     @Override
     public void create(MecanoForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         Mecano mecano = new Mecano();
         mecano.setNom(form.nom());
@@ -43,7 +43,7 @@ public class MecanoServiceImpl implements MecanoService{
     @Override
     public void update(long id, MecanoForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         Mecano mecano = mecanoRepository.findById(id).orElseThrow(()-> new NotFoundException("Mecano non trouvé"));
         mecano.setNom(form.nom());

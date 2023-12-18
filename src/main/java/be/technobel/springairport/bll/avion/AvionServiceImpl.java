@@ -23,7 +23,7 @@ public class AvionServiceImpl implements AvionService{
     @Override
     public void create(AvionForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         Avion avion = new Avion();
         avion.setImmatriculation(form.immatriculation());
@@ -43,7 +43,7 @@ public class AvionServiceImpl implements AvionService{
     @Override
     public void update(String immatriculation,AvionForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         Avion avion = avionRepository.findByImmatriculation(immatriculation).orElseThrow(()->new NotFoundException("Avion non trouvé"));
         avion.setImmatriculation(form.immatriculation());

@@ -23,7 +23,7 @@ public class PiloterServiceImpl implements PiloterService {
     @Override
     public void create(PiloterForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Form ne peut etre null");
+            throw new IllegalArgumentException("Form ne peut pas etre null");
         }
         Piloter piloter = new Piloter();
         piloter.setNbVols(form.nbVols());
@@ -45,7 +45,7 @@ public class PiloterServiceImpl implements PiloterService {
     @Override
     public void update(long id, PiloterForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         Piloter piloter = piloterRepository.findById(id).orElseThrow(() -> new NotFoundException("Aucun piloteur trouvé"));
         piloter.setNbVols(form.nbVols());

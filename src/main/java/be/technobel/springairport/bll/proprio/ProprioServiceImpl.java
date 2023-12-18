@@ -22,7 +22,7 @@ public class ProprioServiceImpl implements ProprioService {
     @Override
     public void create(ProprioForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         Proprio proprio = new Proprio();
         proprio.setNom(form.nom());
@@ -44,7 +44,7 @@ public class ProprioServiceImpl implements ProprioService {
     @Override
     public void update(long id, ProprioForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         Proprio proprio = proprioRepository.findById(id).orElseThrow(()->new NotFoundException("Proprio non trouvé"));
         proprio.setNom(form.nom());

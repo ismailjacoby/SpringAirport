@@ -25,7 +25,7 @@ public class InterventionServiceImpl implements InterventionService{
     @Override
     public void create(InterventionForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         Intervention intervention = new Intervention();
         intervention.setObjet(form.objet());
@@ -47,7 +47,7 @@ public class InterventionServiceImpl implements InterventionService{
     @Override
     public void update(long id, InterventionForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         Intervention intervention = interventionRepository.findById(id).orElseThrow(()->new NotFoundException("Intervention non trouvé!"));
         intervention.setObjet(form.objet());

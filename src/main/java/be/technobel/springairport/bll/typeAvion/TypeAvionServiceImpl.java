@@ -22,7 +22,7 @@ public class TypeAvionServiceImpl implements TypeAvionService{
     @Override
     public void create(TypeAvionForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         TypeAvion typeAvion = new TypeAvion();
         typeAvion.setNom(form.nom());
@@ -45,7 +45,7 @@ public class TypeAvionServiceImpl implements TypeAvionService{
     @Override
     public void update(long id, TypeAvionForm form) {
         if(form==null){
-            throw new IllegalArgumentException("Le formulaire ne peut etre null");
+            throw new IllegalArgumentException("Le formulaire ne peut pas etre null");
         }
         TypeAvion typeAvion = typeAvionRepository.findById(id).orElseThrow(()->new NotFoundException("Type Avion non trouvé"));
         typeAvion.setNom(form.nom());
