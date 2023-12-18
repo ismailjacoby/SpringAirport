@@ -1,6 +1,7 @@
 package be.technobel.springairport.dal.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -15,7 +16,8 @@ public class Intervention {
     private long id;
     private String objet;
     private LocalDate date;
-    private LocalTime time;
+    @Min(value = 1)
+    private LocalTime duree;
 
 
     @ManyToOne

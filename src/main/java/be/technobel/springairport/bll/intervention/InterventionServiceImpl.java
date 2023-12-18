@@ -30,7 +30,7 @@ public class InterventionServiceImpl implements InterventionService{
         Intervention intervention = new Intervention();
         intervention.setObjet(form.objet());
         intervention.setDate(form.date());
-        intervention.setTime(form.time());
+        intervention.setDuree(form.duree());
         interventionRepository.save(intervention);
     }
 
@@ -52,7 +52,7 @@ public class InterventionServiceImpl implements InterventionService{
         Intervention intervention = interventionRepository.findById(id).orElseThrow(()->new NotFoundException("Intervention non trouvé!"));
         intervention.setObjet(form.objet());
         intervention.setDate(form.date());
-        intervention.setTime(form.time());
+        intervention.setDuree(form.duree());
         interventionRepository.save(intervention);
     }
 

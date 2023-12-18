@@ -10,5 +10,5 @@ public record InterventionForm(
         String objet,
         @FutureOrPresent
         LocalDate date,
-        LocalTime time) {
+        LocalTime duree) {
 }
