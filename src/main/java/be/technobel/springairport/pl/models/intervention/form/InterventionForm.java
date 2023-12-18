@@ -8,7 +8,7 @@ import java.time.LocalTime;
 
 public record InterventionForm(
         String objet,
-        @FutureOrPresent
+
         LocalDate date,
-        LocalTime duree) {
+        int duree) {
 }

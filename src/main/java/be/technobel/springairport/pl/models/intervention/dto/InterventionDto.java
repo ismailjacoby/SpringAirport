@@ -8,7 +8,7 @@ import java.time.LocalTime;
 public record InterventionDto(
         String objet,
         LocalDate date,
-        LocalTime duree) {
+        int duree) {
     public static InterventionDto toDto(Intervention intervention){
         return new InterventionDto(intervention.getObjet(), intervention.getDate(),intervention.getDuree());
     }

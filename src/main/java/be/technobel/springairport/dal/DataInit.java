@@ -67,7 +67,7 @@ public class DataInit implements InitializingBean {
             Intervention intervention = new Intervention();
             intervention.setObjet(faker.appliance().equipment());
             intervention.setDate(LocalDate.now());
-            intervention.setTime(LocalTime.now());
+            intervention.setDuree(faker.time().hashCode());
             interventionRepository.save(intervention);
 
             TypeAvion typeAvion = new TypeAvion();

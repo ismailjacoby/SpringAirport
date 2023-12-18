@@ -5,7 +5,6 @@ import be.technobel.springairport.dal.models.TypeAvion;
 import jakarta.validation.constraints.Min;
 
 public record PiloterForm(
-        @Min(0)
         int nbVols,
         Pilote pilote,
         TypeAvion typeAvion) {
